@@ -3,7 +3,6 @@
         <ul class="main-nav">
             <li class="main-nav-left">
                 <ul class="main-nav-group">
-                    <li><button class="bi bi-list menu-button"></button></li>
                     <li><a href="{{route('home')}}" class="menu-brand"><h1>ChillFlix</h1></a></li>
                 </ul>
             </li>
@@ -17,6 +16,7 @@
                             </div>
                         </form>
                     </li>
+                    <li><button class="bi bi-list menu-button"></button></li>
                 </ul>
             </li>
         </ul>
