@@ -16,6 +16,7 @@ class TmdbApiService
         $response = Http::get('https://api.themoviedb.org/3/movie/popular', [
           'api_key' => $this->apiKey,
           'language' => 'fr-FR',
+          'page' => '1'
         ]);
         return $response->json()['results'];
     }
