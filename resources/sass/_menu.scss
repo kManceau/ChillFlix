@@ -1,4 +1,4 @@
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
     #main-menu-container {
         background-color: #000;
         position: fixed;
@@ -31,7 +31,7 @@
         font-size: 1.5rem;
     }
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 992px){
     #main-menu-container {
         grid-column: 1;
         height: calc(100vh - 4.4rem);
