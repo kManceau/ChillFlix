@@ -30,11 +30,11 @@ body{
     display: none;
 }
 
-//@media screen and (min-width: 768px){
-//    .mobile-only{
-//        display: none;
-//    }
-//    .not-on-mobile{
-//        display: block;
-//    }
-//}
+@media screen and (min-width: 768px){
+    .mobile-only{
+        display: none;
+    }
+    .not-on-mobile{
+        display: block;
+    }
+}

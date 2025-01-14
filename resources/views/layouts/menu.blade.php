@@ -2,17 +2,17 @@
     <ul class="main-menu">
         <li class="menu-item">
             <a href="/" class="menu-link">
-                <i class="bi bi-house-fill"></i><span class="not-on-mobile">Home</span>
+                <i class="bi bi-house-fill"></i><span class="not-on-mobile">Accueil</span>
             </a>
         </li>
         <li class="menu-item">
             <a href="/" class="menu-link">
-                <i class="bi bi-film"></i><span class="not-on-mobile">Movies</span>
+                <i class="bi bi-film"></i><span class="not-on-mobile">Films</span>
             </a>
         </li>
         <li class="menu-item">
             <a href="/" class="menu-link">
-                <i class="bi bi-tv"></i><span class="not-on-mobile">TV Shows</span>
+                <i class="bi bi-tv"></i><span class="not-on-mobile">Séries</span>
             </a>
         </li>
         <li class="menu-item">
@@ -27,7 +27,7 @@
         </li>
         <li class="menu-item">
             <a href="/" class="menu-link">
-                <i class="bi bi-person-fill"></i><span class="not-on-mobile">Account</span>
+                <i class="bi bi-person-fill"></i><span class="not-on-mobile">Compte</span>
             </a>
         </li>
     </ul>
