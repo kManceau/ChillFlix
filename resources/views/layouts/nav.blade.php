@@ -16,7 +16,7 @@
                             </div>
                         </form>
                     </li>
-                    <li><button class="bi bi-list menu-button"></button></li>
+{{--                    <li><button class="bi bi-list menu-button mobile-only"></button></li>--}}
                 </ul>
             </li>
         </ul>
