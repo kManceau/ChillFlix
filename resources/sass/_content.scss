@@ -14,7 +14,11 @@ main{
     align-items: center;
     overflow-x: scroll;
     padding: 2rem;
-    padding-block-end: 3rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.cards-container::-webkit-scrollbar{
+    display: none;
 }
 .cards{
     display: grid;
@@ -36,4 +40,15 @@ main{
 }
 .cards:hover{
     transform: scale(1.1);
+}
+
+@media screen and (min-width: 992px){
+    .cards-container{
+        padding-block-end: 3rem;
+        -ms-overflow-style: auto;
+        scrollbar-width: auto;
+    }
+    .cards-container::-webkit-scrollbar{
+        display: block;
+    }
 }
