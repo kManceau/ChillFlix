@@ -2,8 +2,15 @@
 
 @section('content')
     <section id="new-movies-container" class="container-fluid">
-        <h2>Nouveautés Films :</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis eligendi facilis perferendis quaerat quis voluptas, voluptates! Atque et illum impedit provident quisquam saepe sit, unde voluptates? Animi, consequuntur, cum ea exercitationem expedita fugiat inventore ipsa necessitatibus nihil, nisi odio porro quasi reprehenderit similique ut vitae voluptas voluptatem. Amet aperiam aut autem beatae cumque debitis deleniti, dolor dolorum eaque eum ex exercitationem illo, ipsa iste iure libero magni maxime nam nisi obcaecati odio perferendis possimus, quas repellendus reprehenderit voluptas voluptates. Adipisci cupiditate debitis dolor doloribus ea ipsa ipsam itaque iusto mollitia nam optio repellat, repellendus repudiandae sed sequi, soluta tempora ullam.</p>
+        <h2>Prochaines sorties films :</h2>
+        <div class="cards-container">
+            @foreach($upcomingMovies as $movie)
+                <div class="cards">
+                    <h3 class="h5 cards-title">{{$movie['title']}}</h3>
+                    <img src="https://image.tmdb.org/t/p/original/{{$movie['poster_path']}}" alt="Affiche de {{ $movie['title'] }}" class="cards-img">
+                </div>
+            @endforeach
+        </div>
     </section>
     <section id="popular-movies-container" class="container-fluid">
         <h2>Films Populaires :</h2>
