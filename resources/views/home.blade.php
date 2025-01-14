@@ -2,9 +2,9 @@
 
 @section('content')
     <section id="new-movies-container" class="container-fluid">
-        <h2>Prochaines sorties films :</h2>
+        <h2>Dernières sorties films :</h2>
         <div class="cards-container">
-            @foreach($upcomingMovies as $movie)
+            @foreach($lastMovies as $movie)
                 <div class="cards">
                     <h3 class="h5 cards-title">{{$movie['title']}}</h3>
                     <img src="https://image.tmdb.org/t/p/original/{{$movie['poster_path']}}" alt="Affiche de {{ $movie['title'] }}" class="cards-img">

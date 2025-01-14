@@ -9,8 +9,8 @@ class MainController extends Controller
 {
     public function index(TmdbApiService $apiService)
     {
-        $upcomingMovies = $apiService->getUpcomingMovies();
+        $lastMovies = $apiService->getLastMovies();
         $popularMovies = $apiService->getMostPopularMovies();
-        return view('home', compact('upcomingMovies', 'popularMovies'));
+        return view('home', compact('lastMovies', 'popularMovies'));
     }
 }

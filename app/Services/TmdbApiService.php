@@ -12,12 +12,17 @@ class TmdbApiService
         $this->apiKey = env('TMDB_API_KEY');
     }
 
-    public function getUpcomingMovies()
+    public function getLastMovies()
     {
-        $response = Http::get('https://api.themoviedb.org/3/movie/upcoming', [
+
+        $response = Http::get('https://api.themoviedb.org/3/discover/movie', [
           'api_key' => $this->apiKey,
           'language' => 'fr-FR',
-//          'page' => '1'
+          'region' => 'FR',
+          'primary_release_date.lte' => date('Y-m-d'),
+          'sort_by' => 'primary_release_date.desc',
+          'vote_count.gte' => '10',
+          'page' => '1'
         ]);
         return $response->json()['results'];
     }
