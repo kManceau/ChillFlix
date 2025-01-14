@@ -11,7 +11,11 @@
 
 <body>
 @include('layouts.nav')
-@include('layouts.menu')
-@yield('content')
+<div class="main-layout">
+    @include('layouts.menu')
+    <main id="main-content">
+        @yield('content')
+    </main>
+</div>
 </body>
 </html>
