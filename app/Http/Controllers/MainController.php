@@ -11,6 +11,8 @@ class MainController extends Controller
     {
         $lastMovies = $apiService->getLastMovies();
         $popularMovies = $apiService->getMostPopularMovies();
-        return view('home', compact('lastMovies', 'popularMovies'));
+        $lastTvShows = $apiService->getLastTvShows();
+        $popularTvShows = $apiService->getMostPopularTvShows();
+        return view('home', compact('lastMovies', 'popularMovies', 'lastTvShows', 'popularTvShows'));
     }
 }
