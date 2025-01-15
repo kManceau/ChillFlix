@@ -18,7 +18,7 @@ class MainController extends Controller
 
     public function movie($id, TmdbApiService $apiService)
     {
-        $movie = $apiService->getMovie($id);
-        return view('movie', compact('movie'));
+        $item = $apiService->getMovie($id);
+        return view('item', compact('item'));
     }
 }
