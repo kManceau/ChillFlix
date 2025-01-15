@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('styles')
+    @vite('resources/sass/item_view.scss')
+@endsection
+
 @section('content')
     <section class="item-container">
         <div class="item-image-background" style="background-image:url('https://image.tmdb.org/t/p/original{{ $item['backdrop_path'] }}');"></div>
