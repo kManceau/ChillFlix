@@ -29,7 +29,7 @@
         <h2>Nouveautés Séries :</h2>
         <div class="cards-container">
             @foreach($lastTvShows as $tv)
-                <a href="https://www.themoviedb.org/tv/{{ $tv['id'] }}" target="_blank" class="cards">
+                <a href="{{ route('tv', $tv['id']) }}" class="cards">
                     <h3 class="h5 cards-title">{{$tv['name']}}</h3>
                     <img src="https://image.tmdb.org/t/p/w500/{{$tv['poster_path']}}" alt="Affiche de {{ $tv['name'] }}"
                          class="cards-img">
@@ -41,7 +41,7 @@
         <h2>Séries Populaires :</h2>
         <div class="cards-container">
             @foreach($popularTvShows as $tv)
-                <a href="https://www.themoviedb.org/tv/{{ $tv['id'] }}" target="_blank" class="cards">
+                <a href="{{ route('tv', $tv['id']) }}" class="cards">
                     <h3 class="h5 cards-title">{{$tv['name']}}</h3>
                     <img src="https://image.tmdb.org/t/p/w500/{{$tv['poster_path']}}" alt="Affiche de {{ $tv['name'] }}"
                          class="cards-img">

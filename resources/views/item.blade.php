@@ -3,9 +3,9 @@
 @section('content')
     <section class="item-container">
         <div class="item-image-background" style="background-image:url('https://image.tmdb.org/t/p/original{{ $item['backdrop_path'] }}');"></div>
-        <img src="https://image.tmdb.org/t/p/w500{{ $item['poster_path'] }}" alt="Affiche de {{ $item['title'] }}" class="item-poster">
+        <img src="https://image.tmdb.org/t/p/w500{{ $item['poster_path'] }}" alt="Affiche de {{ $item['title'] ?? $item['name'] }}" class="item-poster">
         <div class="item-infos">
-            <h2>{{$item['title']}}</h2>
+            <h2>{{ $item['title'] ?? $item['name'] }}</h2>
             <div class="item-genre">
                 @foreach ($item['genres'] as $genre)
                     <p class="genre">{{ $genre['name'] }}</p>
