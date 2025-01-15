@@ -3,7 +3,7 @@ main{
         color: white;
     }
     section:not(:last-child){
-        margin-block-end: 4rem;
+        margin-block-end: 1rem;
     }
 }
 
@@ -38,6 +38,11 @@ main{
 }
 
 @media screen and (min-width: 992px){
+    main{
+        section:not(:last-child){
+            margin-block-end: 4rem;
+        }
+    }
     .cards-container{
         padding-block-end: 3rem;
         scrollbar-width: auto;
