@@ -1,7 +1,7 @@
 <nav id="main-menu-container">
     <ul class="main-menu">
         <li class="menu-item">
-            <a href="/" class="menu-link">
+            <a href="{{route('home')}}" class="menu-link">
                 <i class="bi bi-house-fill"></i><span class="not-on-mobile">Accueil</span>
             </a>
         </li>

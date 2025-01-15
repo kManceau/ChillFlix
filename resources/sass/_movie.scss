@@ -1,0 +1,29 @@
+.movie-container{
+    margin-block-start: -2rem;
+    display: grid;
+    grid-template-rows: 50vh 200px auto;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+.movie-image-background{
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    grid-row: 1;
+    grid-column: 1;
+    z-index: -1;
+}
+.movie-poster{
+    grid-row: 2;
+    grid-column: 1;
+    height: 400px;
+    margin-block-start: -200px;
+    border: 1px solid black;
+}
+.movie-infos{
+    grid-row: 3;
+    grid-column: 1;
+    display: grid;
+    gap: 1rem;
+    margin-block-start: 1rem;
+}

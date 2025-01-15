@@ -60,4 +60,12 @@ class TmdbApiService
         return $response->json()['results'];
     }
 
+    public function getMovie($id)
+    {
+        $response = Http::get('https://api.themoviedb.org/3/movie/'.$id, [
+          'api_key' => $this->apiKey,
+          'language' => 'fr-FR'
+        ]);
+        return $response->json();
+    }
 }

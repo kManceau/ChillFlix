@@ -15,4 +15,10 @@ class MainController extends Controller
         $popularTvShows = $apiService->getMostPopularTvShows();
         return view('home', compact('lastMovies', 'popularMovies', 'lastTvShows', 'popularTvShows'));
     }
+
+    public function movie($id, TmdbApiService $apiService)
+    {
+        $movie = $apiService->getMovie($id);
+        return view('movie', compact('movie'));
+    }
 }
