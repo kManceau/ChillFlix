@@ -78,4 +78,28 @@ class TmdbApiService
         ]);
         return $response->json();
     }
+
+    public function getMovieList($page)
+    {
+        $response = Http::get('https://api.themoviedb.org/3/discover/movie', [
+           'api_key' => $this->apiKey,
+           'language' => 'fr-FR',
+           'sort_by' => 'original_title.asc',
+           'vote_count.gte' => '1000',
+           'page' => $page,
+        ]);
+        return $response->json();
+    }
+
+    public function getTvList($page)
+    {
+        $response = Http::get('https://api.themoviedb.org/3/discover/tv', [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+            'sort_by' => 'original_name.asc',
+            'vote_count.gte' => '50',
+            'page' => $page,
+        ]);
+        return $response->json();
+    }
 }

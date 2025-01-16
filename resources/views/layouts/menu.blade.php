@@ -6,12 +6,12 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="/" class="menu-link">
+            <a href="{{route('movieList', 1)}}" class="menu-link">
                 <i class="bi bi-film"></i><span class="not-on-mobile">Films</span>
             </a>
         </li>
         <li class="menu-item">
-            <a href="/" class="menu-link">
+            <a href="{{route('tvList', 1)}}" class="menu-link">
                 <i class="bi bi-tv"></i><span class="not-on-mobile">Séries</span>
             </a>
         </li>

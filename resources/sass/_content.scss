@@ -1,6 +1,7 @@
 main{
     section{
         color: white;
+        padding-inline: 0;
     }
     section:not(:last-child){
         margin-block-end: 1rem;
