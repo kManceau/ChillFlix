@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Services\ImageService;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -29,15 +30,17 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    protected $imageService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(ImageService $imageService)
     {
         $this->middleware('guest');
+        $this->imageService = $imageService;
     }
 
     /**
@@ -52,6 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp,avif'],
         ]);
     }
 
@@ -63,11 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $avatarName = null;
+        if($data['avatar']){
+            $hash = $data['name'];
+            $avatarName = hash('sha512', $hash);
+            $this->imageService->uploadImages($data['avatar'], $avatarName, 'avatar');
+        }
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role' => 'user',
+            'avatar' => $avatarName,
         ]);
     }
 }

@@ -14,6 +14,13 @@
             <button class="btn account-btn">Se déconnecter</button>
         </form>
         <div class="account-form-container">
+            @if(Auth::user()->avatar)
+                <picture>
+                    <source srcset="{{ asset('storage/avatar/'.Auth::user()->avatar.'.avif') }}" type="image/avif">
+                    <source srcset="{{ asset('storage/avatar/'.Auth::user()->avatar.'.webp') }}" type="image/webp">
+                    <img src="{{ asset('storage/avatar/'.Auth::user()->avatar.'.jpg') }}" alt="Picture of {{Auth::user()->name}}" class="img-fluid avatar" loading="lazy" />
+                </picture>
+            @endif
             <form method="POST" action="{{ route('edit_account') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">

@@ -10,7 +10,7 @@
             <h2>S'inscrire : </h2>
         </div>
         <div class="account-form-container">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name" class="form-label">Nom d'utilisateur :</label>
@@ -42,6 +42,10 @@
                 <div class="form-group">
                     <label for="password_confirmation" class="form-label">Mot de passe : </label>
                     <input type="password" class="form-control account-item" placeholder="***********" name="password_confirmation" required autocomplete="new-password">
+                </div>
+                <div class="form-group">
+                    <label for="avatar" class="form-label">Avatar :</label>
+                    <input type="file" class="form-control account-item" name="avatar">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary account-btn">S'inscrire</button>

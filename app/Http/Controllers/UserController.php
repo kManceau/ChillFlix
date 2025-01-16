@@ -14,7 +14,7 @@ class UserController
     {
         $request->validate([
             'name' => 'required',
-            'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg,webp,avif',
+            'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp,avif'],
         ]);
         $user = Auth::user();
         $hash = $user->id . $user->name;
