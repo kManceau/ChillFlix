@@ -36,19 +36,19 @@
     border-color: white;
 }
 
-@media screen and ( max-width: 991px ){
+@media screen and (max-width: 991px){
     li.page-item {
-
         display: none;
     }
 
     .page-item:first-child,
-    .page-item:nth-child( 2 ),
-    .page-item:nth-last-child( 2 ),
+    .page-item:nth-child(2),
+    .page-item:nth-child(3),
+    .page-item:nth-last-child(2),
+    .page-item:nth-last-child(3),
     .page-item:last-child,
     .page-item.active,
     .page-item.disabled {
-
         display: block;
     }
 }
