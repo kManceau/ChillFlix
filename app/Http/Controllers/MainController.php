@@ -45,4 +45,9 @@ class MainController extends Controller
         $paginator = new TvListPaginator($items, $tvCount, 20, $page);
         return view('item_list', compact('items', 'paginator'));
     }
+
+    public function account()
+    {
+        return view('account');
+    }
 }

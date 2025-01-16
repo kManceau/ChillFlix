@@ -1,0 +1,36 @@
+#login{
+    display: grid;
+    gap: 2rem;
+}
+.login-form-container{
+    width: 25%;
+    justify-self: center;
+}
+.form-group{
+    margin-block-start: 1rem;
+}
+
+.login-item{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+.login-item::placeholder{
+    color: white;
+}
+.login-item:focus, .login-item:hover{
+    background-color: black;
+    color: white;
+    outline: none;
+    border: 1px solid white;
+}
+.login-btn{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+.login-btn:hover{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
