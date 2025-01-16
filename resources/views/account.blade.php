@@ -33,6 +33,7 @@
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary account-btn">Modifier mon profil</button>
+                    <a href="{{ route('delete_avatar') }}" class="btn btn-danger mx-3">Supprimer l'avatar</a>
                 </div>
             </form>
         </div>

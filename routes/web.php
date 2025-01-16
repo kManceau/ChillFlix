@@ -13,4 +13,5 @@ Route::get('/account', [App\Http\Controllers\MainController::class, 'account'])
     ->name('account')
     ->middleware('auth');
 Route::post('/account/edit', [App\Http\Controllers\UserController::class, 'editUser'])->name('edit_account');
+Route::get('/account/delete_avatar', [App\Http\Controllers\UserController::class, 'deleteAvatar'])->name('delete_avatar');
 Auth::routes();

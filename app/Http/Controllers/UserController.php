@@ -17,6 +17,9 @@ class UserController
             'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp,avif'],
         ]);
         $user = Auth::user();
+        if($user->avatar){
+            $imageService->deleteImages($user->avatar, 'avatar');
+        }
         $hash = $user->id . $user->name;
         $avatarName = hash('sha512', $hash);
         $imageService->uploadImages($request->file('avatar'), $avatarName, 'avatar');
@@ -24,6 +27,14 @@ class UserController
         $user->avatar = $avatarName;
         $user->update();
         return back()->with('success', "Le compte a bien été modifié.");
+    }
+
+    public function deleteAvatar(ImageService $imageService)
+    {
+        $imageService->deleteImages(Auth::user()->avatar, 'avatar');
+        Auth::user()->avatar = null;
+        Auth::user()->update();
+        return back()->with('success', "L'avatar a bien été supprimé.");
     }
 }
 
