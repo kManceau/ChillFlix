@@ -14,11 +14,15 @@
             <button class="btn account-btn">Se déconnecter</button>
         </form>
         <div class="account-form-container">
-            <form method="POST" action="{{ route('edit_account') }}">
+            <form method="POST" action="{{ route('edit_account') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="name" class="form-label">Nom d'utilisateur :</label>
                     <input type="text" class="form-control account-item" value="{{ Auth::user()->name }}" name="name" autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="avatar" class="form-label">Avatar :</label>
+                    <input type="file" class="form-control account-item" name="avatar">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary account-btn">Modifier mon profil</button>
