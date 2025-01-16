@@ -1,8 +1,8 @@
-#login, #register{
+.account-container{
     display: grid;
     gap: 2rem;
 }
-.login-form-container{
+.account-form-container{
     width: 75%;
     justify-self: center;
 }
@@ -10,33 +10,33 @@
     margin-block-start: 1rem;
 }
 
-.login-item{
+.account-item{
     background-color: black;
     color: white;
     border: 1px solid white;
 }
-.login-item::placeholder{
+.account-item::placeholder{
     color: white;
 }
-.login-item:focus, .login-item:hover{
+.account-item:focus, .account-item:hover{
     background-color: black;
     color: white;
     outline: none;
     border: 1px solid white;
 }
-.login-btn{
+.account-btn{
     background-color: black;
     color: white;
     border-color: white;
 }
-.login-btn:hover{
+.account-btn:hover{
     background-color: black;
     color: white;
     border-color: white;
 }
 
 @media screen and (min-width: 992px){
-    .login-form-container{
+    .account-form-container{
         width: 25%;
     }
 }

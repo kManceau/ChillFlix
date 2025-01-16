@@ -12,4 +12,5 @@ Route::get('/tvs/{page}', [App\Http\Controllers\MainController::class, 'tvList']
 Route::get('/account', [App\Http\Controllers\MainController::class, 'account'])
     ->name('account')
     ->middleware('auth');
+Route::post('/account/edit', [App\Http\Controllers\UserController::class, 'editUser'])->name('edit_account');
 Auth::routes();

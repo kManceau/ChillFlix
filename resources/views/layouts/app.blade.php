@@ -15,6 +15,18 @@
 <div class="main-layout">
     @include('layouts.menu')
     <main id="main-content">
+        @if(session('success'))
+            <div class="alert alert-dismissible alert-success container-lg notification-alert">
+                <buton type="button" class="btn-close" data-bs-dismiss="alert"></buton>
+                {{ session('success') }}
+            </div>
+        @endif
+        @if(session('error'))
+            <div class="alert alert-dismissible alert-danger container-lg notification-alert">
+                <buton type="button" class="btn-close" data-bs-dismiss="alert"></buton>
+                {{ session('error') }}
+            </div>
+        @endif
         @yield('content')
     </main>
 </div>
