@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section id="login">
+    <section id="register" class="container-fluid">
         <div class="login-text-container">
             <h2>S'inscrire : </h2>
         </div>
