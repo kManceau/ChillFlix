@@ -57,6 +57,7 @@ class MainController extends Controller
         if($search) {
             $items['movies'] = $apiService->searchMovies($search);
             $items['tvs'] = $apiService->searchTv($search);
+//            dd($items['tvs']);
         } else{
             $items = null;
         }

@@ -17,29 +17,37 @@
         </form>
         @if(isset($items))
             <h3>Films :</h3>
-            <div class="items-grid">
-                @foreach($items['movies'] as $item)
-                    @if($item['poster_path'])
-                    <a href="{{ route('movie', $item['id']) }}" class="cards">
-                        <h3 class="h5 cards-title">{{$item['original_title']}}</h3>
-                        <img src="https://image.tmdb.org/t/p/w500/{{$item['poster_path']}}"
-                             alt="Affiche de {{ $item['original_title'] }}" class="cards-img">
-                    </a>
-                    @endif
-                @endforeach
-            </div>
+            @if(count($items['movies']) == 0)
+                <p>Aucun résultat.</p>
+            @else
+                <div class="items-grid">
+                    @foreach($items['movies'] as $item)
+                        @if($item['poster_path'])
+                            <a href="{{ route('movie', $item['id']) }}" class="cards">
+                                <h3 class="h5 cards-title">{{$item['original_title']}}</h3>
+                                <img src="https://image.tmdb.org/t/p/w500/{{$item['poster_path']}}"
+                                     alt="Affiche de {{ $item['original_title'] }}" class="cards-img">
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+            @endif
             <h3>Séries :</h3>
-            <div class="items-grid">
-                @foreach($items['tvs'] as $item)
-                    @if($item['poster_path'])
-                    <a href="{{ route('tv', $item['id']) }}" class="cards">
-                        <h3 class="h5 cards-title">{{$item['original_name']}}</h3>
-                        <img src="https://image.tmdb.org/t/p/w500/{{$item['poster_path']}}"
-                             alt="Affiche de {{ $item['original_name'] }}" class="cards-img">
-                    </a>
-                    @endif
-                @endforeach
-            </div>
+            @if(count($items['tvs']) == 0)
+                <p>Aucun résultat.</p>
+            @else
+                <div class="items-grid">
+                    @foreach($items['tvs'] as $item)
+                        @if($item['poster_path'])
+                            <a href="{{ route('tv', $item['id']) }}" class="cards">
+                                <h3 class="h5 cards-title">{{$item['original_name']}}</h3>
+                                <img src="https://image.tmdb.org/t/p/w500/{{$item['poster_path']}}"
+                                     alt="Affiche de {{ $item['original_name'] }}" class="cards-img">
+                            </a>
+                        @endif
+                    @endforeach
+                </div>
+            @endif
         @else
             <p>Saississez votre recherche.</p>
         @endif
