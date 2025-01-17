@@ -102,4 +102,23 @@ class TmdbApiService
         ]);
         return $response->json();
     }
+
+    public function searchMovies($search)
+    {
+        $response = Http::get('https://api.themoviedb.org/3/search/movie', [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+            'query' => $search,
+        ]);
+        return $response->json()['results'];
+    }
+    public function searchTv($search)
+    {
+        $response = Http::get('https://api.themoviedb.org/3/search/tv', [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+            'query' => $search,
+        ]);
+        return $response->json()['results'];
+    }
 }

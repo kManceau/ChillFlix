@@ -8,15 +8,20 @@
             </li>
             <li class="main-nav-right">
                 <ul class="main-nav-group">
-                    <li>
-                        <form action="#" id="main-nav-search">
-                            <div class="input-group">
-                                <input type="text" class="form-control main-nav-search-item" placeholder="Search..." aria-label="Formulaire de recherche">
-                                <button class="btn btn-outline-secondary main-nav-search-item" type="submit"><i class="bi bi-search"></i></button>
-                            </div>
-                        </form>
-                    </li>
-{{--                    <li><button class="bi bi-list menu-button mobile-only"></button></li>--}}
+                    @auth
+                        <li class="nav-item">
+                            <a href="{{ route('account') }}" class="nav-link">
+                                <i class="bi bi-person-fill"></i>
+                                <span>{{ Auth::user()->name }}</span>
+                            </a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a href="{{ route('login') }}" class="nav-link">
+                                <i class="bi bi-person-fill"></i><span class="not-on-mobile">Compte</span>
+                            </a>
+                        </li>
+                    @endauth
                 </ul>
             </li>
         </ul>

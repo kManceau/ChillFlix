@@ -50,4 +50,16 @@ class MainController extends Controller
     {
         return view('account');
     }
+
+    public function search(Request $request, TmdbApiService $apiService)
+    {
+        $search = $request->input('search');
+        if($search) {
+            $items['movies'] = $apiService->searchMovies($search);
+            $items['tvs'] = $apiService->searchTv($search);
+        } else{
+            $items = null;
+        }
+        return view('search', compact('items'));
+    }
 }

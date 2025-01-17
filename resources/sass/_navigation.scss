@@ -28,6 +28,18 @@
         margin: 0;
     }
 }
+.nav-link{
+    display: flex;
+    gap: 1rem;
+    color: white;
+}
+.nav-link:hover{
+    color: white;
+}
+
+
+
+
 .main-nav-search-item{
     background-color: black;
     color: white;

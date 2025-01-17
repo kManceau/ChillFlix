@@ -15,7 +15,6 @@
                          alt="Affiche de {{ $item['original_title']?? $item['original_name'] }}" class="cards-img">
                 </a>
             @endforeach
-
         </div>
         <div class="pagination">
             {{ $paginator->links() }}
