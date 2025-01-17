@@ -3,6 +3,8 @@ const tvGrid = document.querySelector(".tv-grid");
 const searchInput = document.getElementById("search-input");
 const baseUrl = '/search';
 
+setUrlValue(baseUrl);
+
 searchInput.addEventListener("input", async e => {
     window.history.pushState(null, null, baseUrl + '?search=' + searchInput.value);
     clearContainer(movieGrid);
@@ -63,4 +65,12 @@ function itemCard(item){
     card.appendChild(cardTitle);
     card.appendChild(poster);
     return card;
+}
+
+function setUrlValue(){
+    const urlParams = new URLSearchParams(window.location.search);
+    const search = urlParams.get("search");
+    if(search){
+        searchInput.value = search;
+    }
 }
