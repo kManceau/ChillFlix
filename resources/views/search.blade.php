@@ -43,10 +43,5 @@
         @else
             <p>Saississez votre recherche.</p>
         @endif
-        @if(isset($paginator))
-            <div class="pagination">
-                {{ $paginator->links() }}
-            </div>
-        @endif
     </section>
 @endsection
