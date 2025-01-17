@@ -10,6 +10,7 @@ export default defineConfig({
                 'resources/sass/item_list.scss',
                 'resources/sass/account.scss',
                 'resources/js/app.js',
+                'resources/js/search.js',
             ],
             refresh: true,
         }),

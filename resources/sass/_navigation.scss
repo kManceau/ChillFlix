@@ -36,24 +36,3 @@
 .nav-link:hover{
     color: white;
 }
-
-
-
-
-.main-nav-search-item{
-    background-color: black;
-    color: white;
-    border: 1px solid white;
-}
-.main-nav-search-item::placeholder{
-    color: white;
-}
-.main-nav-search-item:focus, .main-nav-search-item:hover{
-    background-color: black;
-    color: white;
-    outline: none;
-    border: 1px solid white;
-}
-
-
-

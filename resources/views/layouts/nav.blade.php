@@ -1,5 +1,5 @@
 <header id="main-nav-container">
-    <nav class="container-lg">
+    <nav class="container-fluid">
         <ul class="main-nav">
             <li class="main-nav-left">
                 <ul class="main-nav-group">
