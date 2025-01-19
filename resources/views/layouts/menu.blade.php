@@ -21,7 +21,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="{{route('favorites')}}" class="menu-link">
+            <a href="{{route('favorites', [1, 1])}}" class="menu-link">
                 <i class="bi bi-star-fill"></i><span class="not-on-mobile">Favoris</span>
             </a>
         </li>

@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             'password' => Hash::make('KevinManceau'),
             'remember_token' => Str::random(10),
             'role' => 'admin',
+            'id' => 1,
         ]);
         User::create([
             'name' => 'JeanClaude',
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'role' => 'user',
+            'id' => 2,
         ]);
         User::create([
             'name' => 'JeanPaul',
@@ -34,6 +36,7 @@ class UserSeeder extends Seeder
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
             'role' => 'user',
+            'id' => 3,
         ]);
     }
 }

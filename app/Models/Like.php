@@ -14,6 +14,7 @@ class Like extends Model
         'user_id',
         'tmdb_id',
         'type',
+        'title',
     ];
 
     public function user()

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-    public function addLike($user_id, $tmdb_id, $type)
+    public function addLike($user_id, $tmdb_id, $type, $title)
     {
         if($user_id == 'none'){
             return redirect()->route('login');
@@ -17,6 +17,7 @@ class LikeController extends Controller
             $like = new Like([
                     'tmdb_id' => $tmdb_id,
                     'type' => $type,
+                    'title' => $title,
                 ]
             );
             $user->likes()->save($like);

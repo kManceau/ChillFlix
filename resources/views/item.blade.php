@@ -18,16 +18,16 @@
             <div class="item-icons">
                 @auth
                     @if(Auth::user()->hasLiked($item['id'], array_key_exists('original_title', $item) ? 'movie' : 'tv'))
-                        <a href="{{route('unlike', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Supprimer des favoris">
+                        <a href="{{route('unlike', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv', 'title' => $item['title'] ?? $item['name']])}}" title="Supprimer des favoris">
                             <i class="bi bi-star-fill"></i>
                         </a>
                     @else
-                        <a href="{{route('like', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
+                        <a href="{{route('like', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv', 'title' => $item['title'] ?? $item['name']])}}" title="Ajouter aux favoris">
                             <i class="bi bi-star"></i>
                         </a>
                     @endif
                 @else
-                    <a href="{{route('like', ['user_id' => 'none', 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
+                    <a href="{{route('like', ['user_id' => 'none', 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv', 'title' => $item['title'] ?? $item['name']])}}" title="Ajouter aux favoris">
                         <i class="bi bi-star"></i>
                     </a>
                 @endauth
