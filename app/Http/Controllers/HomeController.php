@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Pagination\FavoritesMoviesPaginator;
 use App\Pagination\FavoritesTvPaginator;
+use App\Pagination\MovieListPaginator;
 use App\Pagination\TvListPaginator;
 use App\Services\TmdbApiService;
 use Illuminate\Http\Request;
