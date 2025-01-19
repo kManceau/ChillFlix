@@ -57,4 +57,12 @@ class User extends Authenticatable
     {
         return $this->likes()->where('tmdb_id', $item_id)->where('type', $type)->exists();
     }
+
+    public function watched(){
+        return $this->hasMany(Watchlist::class);
+    }
+
+    public function hasWatched($item_id, $type){
+        return $this->watched()->where('tmdb_id', $item_id)->where('type', $type)->exists();
+    }
 }

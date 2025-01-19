@@ -18,18 +18,34 @@
             <div class="item-icons">
                 @auth
                     @if(Auth::user()->hasLiked($item['id'], array_key_exists('original_title', $item) ? 'movie' : 'tv'))
-                        <a href="{{route('unlike', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
+                        <a href="{{route('unlike', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Supprimer des favoris">
                             <i class="bi bi-star-fill"></i>
+                        </a>
                     @else
-                        <a href="{{route('like', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Supprimer des favoris">
+                        <a href="{{route('like', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
                             <i class="bi bi-star"></i>
+                        </a>
                     @endif
                 @else
                     <a href="{{route('like', ['user_id' => 'none', 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
                         <i class="bi bi-star"></i>
+                    </a>
                 @endauth
-                </a>
-                <a href="#" title="Ajouter à la watchlist"><i class="bi bi-stopwatch"></i></a>
+                    @auth
+                        @if(Auth::user()->hasWatched($item['id'], array_key_exists('original_title', $item) ? 'movie' : 'tv'))
+                            <a href="{{route('unwatch', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Supprimer de la watchlist">
+                                <i class="bi bi-stopwatch-fill"></i>
+                            </a>
+                        @else
+                            <a href="{{route('watch', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter à la watchlist">
+                                <i class="bi bi-stopwatch"></i>
+                            </a>
+                        @endif
+                    @else
+                        <a href="{{route('watch', ['user_id' => 'none', 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter à la watchlist">
+                            <i class="bi bi-stopwatch"></i>
+                        </a>
+                    @endauth
             </div>
             <p class="item-overview">{{ $item['overview'] }}</p>
         </div>
