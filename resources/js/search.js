@@ -54,7 +54,9 @@ function itemCard(item){
     const title = item.original_title ?? item.original_name
     const card = document.createElement('a');
     card.classList.add("cards");
-    card.href = "/movie/" + item.id;
+    item.original_title ?
+        card.href = "/movie/" + item.id :
+        card.href = "/tv/" + item.id;
     const cardTitle = document.createElement("h3");
     cardTitle.textContent = title;
     cardTitle.className = "h5 cards-title";

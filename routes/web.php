@@ -10,6 +10,8 @@ Route::get('/tv/{id}', [App\Http\Controllers\MainController::class, 'tv'])->name
 Route::get('/movies/{page}', [App\Http\Controllers\MainController::class, 'movieList'])->name('movieList');
 Route::get('/tvs/{page}', [App\Http\Controllers\MainController::class, 'tvList'])->name('tvList');
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
+Route::get('/like/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\LikeController::class, 'addLike'])->name('like');
+Route::get('/unlike/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\LikeController::class, 'removeLike'])->name('unlike');
 Route::get('/account', [App\Http\Controllers\MainController::class, 'account'])
     ->name('account')
     ->middleware('auth');

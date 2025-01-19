@@ -16,7 +16,19 @@
                 @endforeach
             </div>
             <div class="item-icons">
-                <a href="#" title="Ajouter aux favoris"><i class="bi bi-star"></i></a>
+                @auth
+                    @if(Auth::user()->hasLiked($item['id'], array_key_exists('original_title', $item) ? 'movie' : 'tv'))
+                        <a href="{{route('unlike', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
+                            <i class="bi bi-star-fill"></i>
+                    @else
+                        <a href="{{route('like', ['user_id' => Auth::user()->id, 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Supprimer des favoris">
+                            <i class="bi bi-star"></i>
+                    @endif
+                @else
+                    <a href="{{route('like', ['user_id' => 'none', 'tmdb_id' => $item['id'], 'type' => array_key_exists('original_title', $item) ? 'movie' : 'tv'])}}" title="Ajouter aux favoris">
+                        <i class="bi bi-star"></i>
+                @endauth
+                </a>
                 <a href="#" title="Ajouter à la watchlist"><i class="bi bi-stopwatch"></i></a>
             </div>
             <p class="item-overview">{{ $item['overview'] }}</p>
