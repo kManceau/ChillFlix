@@ -47,8 +47,9 @@ class HomeController extends Controller
 
     public function tv($id, TmdbApiService $apiService)
     {
+        $comments = Comment::where('tmdb_id', $id)->where('type', 'tv')->get();
         $item = $apiService->getTvShow($id);
-        return view('item', compact('item'));
+        return view('item', compact('item', 'comments'));
     }
 
     public function movieList($page, TmdbApiService $apiService)

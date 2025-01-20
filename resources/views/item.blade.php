@@ -98,7 +98,7 @@
             @auth
                 <form action="{{route('add_comment')}}">
                     <input type="hidden" name="tmdb_id" value="{{$item['id']}}">
-                    <input type="hidden" name="type" value="{{$item['title'] ? 'movie' : 'tv'}}">
+                    <input type="hidden" name="type" value="{{array_key_exists('original_title', $item) ? 'movie' : 'tv'}}">
                     <div class="form-group">
                         <label for="comment" class="form-label">Poster un commentaire :</label>
                         <textarea name="comment" id="comment" class="form-control" placeholder="Tapez votre commentaire"></textarea>
