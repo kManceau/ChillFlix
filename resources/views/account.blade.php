@@ -11,7 +11,7 @@
         </div>
         <form id="logout-form" action="{{ route('logout') }}" method="POST">
             @csrf
-            <button class="btn account-btn">Se déconnecter</button>
+            <button class="btn">Se déconnecter</button>
         </form>
         <div class="account-form-container">
             @if(Auth::user()->avatar)
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group button-group">
                     <button class="btn btn-primary account-btn">Modifier mon profil</button>
-                    <a href="{{ route('delete_avatar') }}" class="btn btn-danger">Supprimer l'avatar</a>
+                    <a href="{{ route('delete_avatar') }}" class="btn">Supprimer l'avatar</a>
                 </div>
             </form>
         </div>

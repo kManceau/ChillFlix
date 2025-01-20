@@ -30,4 +30,24 @@ Route::get('/get/moviesearch/{query}', [App\Http\Controllers\SearchController::c
 Route::get('/get/tvsearch/{query}', [App\Http\Controllers\SearchController::class, 'getTvSearch']);
 Route::get('/comment/add', [App\Http\Controllers\CommentController::class, 'addComment'])->name('add_comment');
 Route::get('/comment/delete/{commentId}', [App\Http\Controllers\CommentController::class, 'deleteComment'])->name('delete_comment');
+
+Route::get('/admin/', [App\Http\Controllers\AdminController::class, 'home'])
+    ->name('admin_home')
+    ->middleware('auth');
+
+Route::get('/admin/users', [App\Http\Controllers\AdminController::class, 'user'])
+    ->name('admin_users')
+    ->middleware('auth');
+Route::get('/admin/user/{userId}', [App\Http\Controllers\AdminController::class, 'editUser'])
+    ->name('admin_user_edit')
+    ->middleware('auth');
+Route::post('/admin/user/update/{userId}', [App\Http\Controllers\AdminController::class, 'updateUser'])
+    ->name('admin_update_user')
+    ->middleware('auth');
+Route::get('/admin/user/avatar/{userId}', [App\Http\Controllers\AdminController::class, 'adminDeleteAvatar'])
+    ->name('admin_delete_avatar')
+    ->middleware('auth');
+Route::get('/admin/user/delete/{userId}', [App\Http\Controllers\AdminController::class, 'adminDeleteUser'])
+    ->name('admin_delete_user')
+    ->middleware('auth');
 Auth::routes();

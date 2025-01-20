@@ -17,5 +17,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             LikeSeeder::class,
         ]);
+
+        User::factory(50)->create();
     }
 }
