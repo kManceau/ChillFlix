@@ -48,6 +48,20 @@
 .item-overview{
     margin-block-start: 1rem;
 }
+#item-comments-container{
+    text-align: center;
+    h2{
+        margin-block-end: 1rem;
+    }
+    a{
+        color: white;
+        text-decoration: none;
+        font-style: italic;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+}
 
 @media screen and (min-width: 992px){
     .main-layout{

@@ -10,6 +10,7 @@ class FavoritesTvPaginator extends LengthAwarePaginator
     {
         $url = $_SERVER['REQUEST_URI'];
         $url = explode('/', $url);
+        array_pop($url);
         $moviePage = end($url);
         return url("fav/{$moviePage}/{$tvPage}");
     }

@@ -50,4 +50,14 @@
             <p class="item-overview">{{ $item['overview'] }}</p>
         </div>
     </section>
+    <section id="item-comments-container">
+        <div class="container-fluid">
+            <h2>Commentaires (0) :</h2>
+        @auth
+        @else
+            <p>Vous devez être connecté pour poster un commentaire.</p>
+            <a href="{{route("login")}}">Se connecter.</a>
+        @endauth
+        </div>
+    </section>
 @endsection
