@@ -64,7 +64,7 @@
     .form-group{
         width: 75%;
         margin-inline: auto;
-        margin-block-end: 2rem;
+        margin-block-end: 1rem;
     }
     .btn{
         background-color: black;
@@ -76,6 +76,31 @@
         color: white;
         border-color: white;
     }
+    .comments-container{
+        display: grid;
+        gap: 2rem;
+        margin-block-end: 2rem;
+        .alert{
+            text-align: start;
+            //display: flex;
+            //gap: 3rem;
+        }
+        .avatar{
+            margin-inline-end: 1rem;
+            height: 50px;
+            width: 50px;
+            border-radius: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .comment-user-date{
+            display: flex;
+            gap: 1rem;
+            p{
+                margin: 0;
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 992px){
@@ -86,5 +111,9 @@
         .form-group{
             text-align: start;
         }
+    }
+    .comments-container{
+        width: 75%;
+        margin-inline: auto;
     }
 }

@@ -60,14 +60,35 @@
     </section>
     <section id="item-comments-container">
         <div class="container-fluid">
-            <h2>Commentaires (0) :</h2>
+            <h2>Commentaires ({{$comments->count()}}) :</h2>
+            <div class="comments-container">
+                @foreach($comments as $comment)
+                    <div class="comment">
+                        <div class="alert alert-dark">
+                            @if($comment->user->avatar)
+                                <picture>
+                                    <source srcset="{{ asset('storage/avatar/'.$comment->user->avatar.'.avif') }}" type="image/avif">
+                                    <source srcset="{{ asset('storage/avatar/'.$comment->user->avatar.'.webp') }}" type="image/webp">
+                                    <img src="{{ asset('storage/avatar/'.$comment->user->avatar.'.jpg') }}" alt="Picture of {{Auth::user()->name}}" class="img-fluid avatar" loading="lazy" />
+                                </picture>
+                            @endif
+                                {{$comment->comment}}
+                        </div>
+                        <div class="comment-infos">
+                            <div class="comment-user-date">
+                                <p>Posté par {{$comment->user->name}} le {{$comment->created_at->format('l d F Y')}} à {{$comment->created_at->format('H:i')}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
             @auth
-                <p>Poster un commentaire : </p>
                 <form action="{{route('add_comment')}}">
                     <input type="hidden" name="tmdb_id" value="{{$item['id']}}">
                     <input type="hidden" name="type" value="{{$item['title'] ? 'movie' : 'tv'}}">
                     <div class="form-group">
-                        <label for="comment" class="form-label">Commentaire :</label>
+                        <label for="comment" class="form-label">Poster un commentaire :</label>
                         <textarea name="comment" id="comment" class="form-control" placeholder="Tapez votre commentaire"></textarea>
                     </div>
                     <div class="form-group">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Pagination\FavoritesMoviesPaginator;
 use App\Pagination\FavoritesTvPaginator;
 use App\Pagination\MovieListPaginator;
@@ -39,8 +40,9 @@ class HomeController extends Controller
 
     public function movie($id, TmdbApiService $apiService)
     {
+        $comments = Comment::where('tmdb_id', $id)->where('type', 'movie')->get();
         $item = $apiService->getMovie($id);
-        return view('item', compact('item'));
+        return view('item', compact('item', 'comments'));
     }
 
     public function tv($id, TmdbApiService $apiService)
