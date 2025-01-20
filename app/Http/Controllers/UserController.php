@@ -17,14 +17,16 @@ class UserController
             'avatar' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp,avif'],
         ]);
         $user = Auth::user();
-        if($user->avatar){
-            $imageService->deleteImages($user->avatar, 'avatar');
+        if($request->file('avatar')) {
+            if($user->avatar){
+                $imageService->deleteImages($user->avatar, 'avatar');
+            }
+            $hash = $user->id . $user->name;
+            $avatarName = hash('sha512', $hash);
+            $imageService->uploadImages($request->file('avatar'), $avatarName, 'avatar');
+            $user->avatar = $avatarName;
         }
-        $hash = $user->id . $user->name;
-        $avatarName = hash('sha512', $hash);
-        $imageService->uploadImages($request->file('avatar'), $avatarName, 'avatar');
         $user->name = $request->get('name');
-        $user->avatar = $avatarName;
         $user->update();
         return back()->with('success', "Le compte a bien été modifié.");
     }
