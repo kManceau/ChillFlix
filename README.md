@@ -16,3 +16,5 @@ To setup the project, just follow the following steps :
 * `php migrate:fresh --seed`
 
 The project is now setup. You can deploy it or just test by running a test server using the command : `php artisan serve`
+
+This project is also available here : https://chillflix.kmanceau.fr
