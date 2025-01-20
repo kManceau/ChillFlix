@@ -26,7 +26,7 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="/" class="menu-link">
+            <a href="{{route('watchlist', [1, 1])}}" class="menu-link">
                 <i class="bi bi-stopwatch-fill"></i><span class="not-on-mobile">Watchlist</span>
             </a>
         </li>

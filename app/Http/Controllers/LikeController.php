@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Models\User;
+use App\Pagination\FavoritesMoviesPaginator;
+use App\Pagination\FavoritesTvPaginator;
+use App\Services\TmdbApiService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
@@ -34,5 +38,38 @@ class LikeController extends Controller
             $like->delete();
             return redirect()->back();
         }
+    }
+
+    public function favorites($moviePage, $tvPage, TmdbApiService $apiService)
+    {
+        $moviesLiked = Auth::user()->likes->filter(function ($like) {
+            return $like->type === 'movie';
+        })->toArray();
+        $tvsLiked = Auth::user()->likes->filter(function ($like) {
+            return $like->type === 'tv';
+        })->toArray();
+        usort($moviesLiked, function ($a, $b) {
+            return strcmp($a['title'], $b['title']);
+        });
+        usort($tvsLiked, function ($a, $b) {
+            return strcmp($a['title'], $b['title']);
+        });
+
+        $movieOffset = ($moviePage - 1) * 20;
+        $moviesForPage = array_slice($moviesLiked, $movieOffset, 20);
+        $movies = [];
+        foreach ($moviesForPage as $movie) {
+            array_push($movies, $apiService->getMovie($movie['tmdb_id']));
+        }
+        $moviePaginator = new FavoritesMoviesPaginator($movies, count($moviesLiked), 20, $moviePage);
+
+        $tvOffset = ($tvPage - 1) * 20;
+        $tvForPage = array_slice($tvsLiked, $tvOffset, 20);
+        $tvs = [];
+        foreach ($tvForPage as $tv) {
+            array_push($tvs, $apiService->getTvShow($tv['tmdb_id']));
+        }
+        $tvPaginator = new FavoritesTvPaginator($tvs, count($tvsLiked), 20, $tvPage);
+        return view('favorites', compact('movies', 'tvs', 'moviePaginator', 'tvPaginator'));
     }
 }

@@ -6,9 +6,9 @@
 
 @section('content')
     <section class="item-list-container container-fluid">
-        <h2>Films favoris :</h2>
+        <h2>Films à regarder :</h2>
             @if(count($movies) == 0)
-                <p>Vous n'avez pas de films favoris.</p>
+                <p>Vous n'avez pas de films à regarder.</p>
             @else
             <div class="items-grid">
                 @foreach($movies as $movie)
@@ -26,9 +26,9 @@
     </section>
 
     <section class="item-list-container container-fluid">
-        <h2>Séries favorites :</h2>
+        <h2>Séries à regarder :</h2>
         @if(count($tvs) == 0)
-            <p>Vous n'avez pas de séries favorites.</p>
+            <p>Vous n'avez pas de séries à regarder.</p>
         @else
             <div class="items-grid">
                 @foreach($tvs as $tv)

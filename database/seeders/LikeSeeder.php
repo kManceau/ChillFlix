@@ -142,6 +142,13 @@ class LikeSeeder extends Seeder
             'type' => 'movie',
             'title' => 'Aymeric Lompret',
         ]);
+        Like::create([
+            'user_id' => 1,
+            'tmdb_id' => 383809,
+            'type' => 'movie',
+            'title' => 'Merci Patron',
+        ]);
+
 
         // Liked TV Admin
         Like::create([
