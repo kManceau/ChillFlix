@@ -31,9 +31,9 @@
                     <label for="avatar" class="form-label">Avatar :</label>
                     <input type="file" class="form-control account-item" name="avatar">
                 </div>
-                <div class="form-group">
+                <div class="form-group button-group">
                     <button class="btn btn-primary account-btn">Modifier mon profil</button>
-                    <a href="{{ route('delete_avatar') }}" class="btn btn-danger mx-3">Supprimer l'avatar</a>
+                    <a href="{{ route('delete_avatar') }}" class="btn btn-danger">Supprimer l'avatar</a>
                 </div>
             </form>
         </div>

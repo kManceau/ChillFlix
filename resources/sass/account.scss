@@ -39,8 +39,16 @@
     object-position: center;
     border-radius: 1rem;
 }
+.button-group{
+    display: grid;
+    gap: 1rem;
+}
 @media screen and (min-width: 992px){
     .account-form-container{
         width: 25%;
+    }
+    .button-group{
+        display: flex;
+        gap: 1rem;
     }
 }
