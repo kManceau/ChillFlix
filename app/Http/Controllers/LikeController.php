@@ -55,21 +55,21 @@ class LikeController extends Controller
             return strcmp($a['title'], $b['title']);
         });
 
-        $movieOffset = ($moviePage - 1) * 20;
-        $moviesForPage = array_slice($moviesLiked, $movieOffset, 20);
+        $movieOffset = ($moviePage - 1) * 16;
+        $moviesForPage = array_slice($moviesLiked, $movieOffset, 16);
         $movies = [];
         foreach ($moviesForPage as $movie) {
             array_push($movies, $apiService->getMovie($movie['tmdb_id']));
         }
-        $moviePaginator = new FavoritesMoviesPaginator($movies, count($moviesLiked), 20, $moviePage);
+        $moviePaginator = new FavoritesMoviesPaginator($movies, count($moviesLiked), 16, $moviePage);
 
-        $tvOffset = ($tvPage - 1) * 20;
-        $tvForPage = array_slice($tvsLiked, $tvOffset, 20);
+        $tvOffset = ($tvPage - 1) * 16;
+        $tvForPage = array_slice($tvsLiked, $tvOffset, 16);
         $tvs = [];
         foreach ($tvForPage as $tv) {
             array_push($tvs, $apiService->getTvShow($tv['tmdb_id']));
         }
-        $tvPaginator = new FavoritesTvPaginator($tvs, count($tvsLiked), 20, $tvPage);
+        $tvPaginator = new FavoritesTvPaginator($tvs, count($tvsLiked), 16, $tvPage);
         return view('favorites', compact('movies', 'tvs', 'moviePaginator', 'tvPaginator'));
     }
 }

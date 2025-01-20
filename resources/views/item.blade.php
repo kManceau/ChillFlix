@@ -1,3 +1,7 @@
+@php
+    \Carbon\Carbon::setLocale('fr');
+@endphp
+
 @extends('layouts.app')
 
 @section('styles')
@@ -69,17 +73,25 @@
                                 <picture>
                                     <source srcset="{{ asset('storage/avatar/'.$comment->user->avatar.'.avif') }}" type="image/avif">
                                     <source srcset="{{ asset('storage/avatar/'.$comment->user->avatar.'.webp') }}" type="image/webp">
-                                    <img src="{{ asset('storage/avatar/'.$comment->user->avatar.'.jpg') }}" alt="Picture of {{Auth::user()->name}}" class="img-fluid avatar" loading="lazy" />
+                                    <img src="{{ asset('storage/avatar/'.$comment->user->avatar.'.jpg') }}" alt="Picture of {{$comment->user->name}}" class="img-fluid avatar" loading="lazy" />
                                 </picture>
                             @endif
                                 {{$comment->comment}}
                         </div>
                         <div class="comment-infos">
                             <div class="comment-user-date">
-                                <p>Posté par {{$comment->user->name}} le {{$comment->created_at->format('l d F Y')}} à {{$comment->created_at->format('H:i')}}</p>
+                                <p>Posté par <span>{{$comment->user->name}}</span> le <span>{{$comment->created_at->translatedFormat('l d F Y')}} à {{$comment->created_at->format('H:i')}}</span></p>
+                            </div>
+                            <div class="comment-report">
+                                @auth
+                                    @if(Auth::user()->id == $comment->user->id or Auth::user()->role == 'admin')
+                                        <a href="{{route('delete_comment', $comment->id)}}">Supprimer</a>
+                                    @else
+                                        <a href="#">Signaler</a>
+                                    @endif
+                                @endauth
                             </div>
                         </div>
-
                     </div>
                 @endforeach
             </div>

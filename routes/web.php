@@ -29,4 +29,5 @@ Route::get('/account/delete_avatar', [App\Http\Controllers\UserController::class
 Route::get('/get/moviesearch/{query}', [App\Http\Controllers\SearchController::class, 'getMovieSearch']);
 Route::get('/get/tvsearch/{query}', [App\Http\Controllers\SearchController::class, 'getTvSearch']);
 Route::get('/comment/add', [App\Http\Controllers\CommentController::class, 'addComment'])->name('add_comment');
+Route::get('/comment/delete/{commentId}', [App\Http\Controllers\CommentController::class, 'deleteComment'])->name('delete_comment');
 Auth::routes();

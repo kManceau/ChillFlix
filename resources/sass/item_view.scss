@@ -82,8 +82,6 @@
         margin-block-end: 2rem;
         .alert{
             text-align: start;
-            //display: flex;
-            //gap: 3rem;
         }
         .avatar{
             margin-inline-end: 1rem;
@@ -93,12 +91,26 @@
             object-fit: cover;
             object-position: center;
         }
+        .comment-infos{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: start;
+        }
+        p{
+            margin: 0;
+        }
         .comment-user-date{
             display: flex;
             gap: 1rem;
-            p{
-                margin: 0;
+            span{
+                font-style: italic;
             }
+        }
+        .comment-report{
+            display: flex;
+            justify-content: start;
+            gap: 1rem;
         }
     }
 }

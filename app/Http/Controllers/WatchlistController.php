@@ -55,21 +55,21 @@ class WatchlistController extends Controller
             return strcmp($a['title'], $b['title']);
         });
 
-        $movieOffset = ($moviePage - 1) * 20;
-        $moviesForPage = array_slice($moviesWatched, $movieOffset, 20);
+        $movieOffset = ($moviePage - 1) * 16;
+        $moviesForPage = array_slice($moviesWatched, $movieOffset, 16);
         $movies = [];
         foreach ($moviesForPage as $movie) {
             array_push($movies, $apiService->getMovie($movie['tmdb_id']));
         }
-        $moviePaginator = new FavoritesMoviesPaginator($movies, count($moviesWatched), 20, $moviePage);
+        $moviePaginator = new FavoritesMoviesPaginator($movies, count($moviesWatched), 16, $moviePage);
 
-        $tvOffset = ($tvPage - 1) * 20;
-        $tvForPage = array_slice($tvsWatched, $tvOffset, 20);
+        $tvOffset = ($tvPage - 1) * 16;
+        $tvForPage = array_slice($tvsWatched, $tvOffset, 16);
         $tvs = [];
         foreach ($tvForPage as $tv) {
             array_push($tvs, $apiService->getTvShow($tv['tmdb_id']));
         }
-        $tvPaginator = new FavoritesTvPaginator($tvs, count($tvsWatched), 20, $tvPage);
+        $tvPaginator = new FavoritesTvPaginator($tvs, count($tvsWatched), 16, $tvPage);
         return view('watchlist', compact('movies', 'tvs', 'moviePaginator', 'tvPaginator'));
     }
 }
