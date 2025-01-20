@@ -30,6 +30,13 @@ body{
     display: none;
 }
 
+.alert{
+    position: fixed;
+    top: 5rem;
+    left: 25%;
+    width: 50%;
+}
+
 @media screen and (min-width: 992px){
     .mobile-only{
         display: none;

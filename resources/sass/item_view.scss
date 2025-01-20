@@ -61,10 +61,30 @@
     a:hover{
         text-decoration: underline;
     }
+    .form-group{
+        width: 75%;
+        margin-inline: auto;
+        margin-block-end: 2rem;
+    }
+    .btn{
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+    .btn:hover{
+        background-color: #1E1E1E;
+        color: white;
+        border-color: white;
+    }
 }
 
 @media screen and (min-width: 992px){
     .main-layout{
         gap: 0;
+    }
+    #item-comments-container{
+        .form-group{
+            text-align: start;
+        }
     }
 }

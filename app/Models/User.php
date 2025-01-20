@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function hasWatched($item_id, $type){
         return $this->watched()->where('tmdb_id', $item_id)->where('type', $type)->exists();
     }
+
+    public function comment(){
+        return $this->hasMany(Comment::class);
+    }
 }
