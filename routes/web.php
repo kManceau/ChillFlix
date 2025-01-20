@@ -15,9 +15,9 @@ Route::get('/unlike/{user_id}/{tmdb_id}/{type}/{title}', [App\Http\Controllers\L
 Route::get('/fav/{moviePage}/{tvPage}', [\App\Http\Controllers\LikeController::class, 'favorites'])
     ->name('favorites')
     ->middleware('auth');
-Route::get('/watch/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\WatchListController::class, 'addWatched'])->name('watch');
-Route::get('/unwatch/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\WatchListController::class, 'removeWatched'])->name('unwatch');
-Route::get('/watchlist/{moviePage}/{tvPage}', [App\Http\Controllers\WatchListController::class, 'watchlist'])
+Route::get('/watch/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\WatchlistController::class, 'addWatched'])->name('watch');
+Route::get('/unwatch/{user_id}/{tmdb_id}/{type}', [App\Http\Controllers\WatchlistController::class, 'removeWatched'])->name('unwatch');
+Route::get('/watchlist/{moviePage}/{tvPage}', [App\Http\Controllers\WatchlistController::class, 'watchlist'])
     ->name('watchlist')
     ->middleware('auth');
 Route::get('/account', [App\Http\Controllers\HomeController::class, 'account'])
