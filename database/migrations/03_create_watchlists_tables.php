@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('watchlists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('tmdb_id');
-            $table->string('type');
-            $table->string('title');
+            $table->string('tmdb_id', 50);
+            $table->string('type', 5);
+            $table->string('title', 255);
         });
     }
 
